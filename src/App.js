@@ -31,7 +31,6 @@ function App() {
     <div className="app">
       <div className="app__header">
         <h1>Track the COVID 19</h1>
-        <InfoBox />
         <FormControl className="app_dropdown">
           <Select variant="outlined" onChange={onCountryChange} value={country}>
             <MenuItem value="worldwide">World Wide</MenuItem>
@@ -41,7 +40,11 @@ function App() {
           </Select>
         </FormControl>
       </div>
-      <div className="app_stats"></div>
+      <div className="app_stats">
+        <InfoBox title="Coronavirus Cases" total={149000} cases={8934759} />
+        <InfoBox title="Recovered" total={138000} cases={983495} />
+        <InfoBox title="Deaths" total={8000} cases={125} />
+      </div>
     </div>
   );
 }
