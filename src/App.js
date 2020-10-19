@@ -15,6 +15,15 @@ function App() {
   const [country, setCountry] = useState("worldwide");
   const [countryInfo, setCountryInfo] = useState({});
 
+  /* This do the very first fetch when the app load */
+  useEffect(() => {
+    fetch("https://disease.sh/v3/covid-19/all")
+      .then((response) => response.json())
+      .then((data) => {
+        setCountryInfo(data);
+      });
+  });
+
   useEffect(() => {
     const getCountrieData = async () => {
       await fetch("https://disease.sh/v3/covid-19/countries").then((response) =>
