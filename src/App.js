@@ -9,6 +9,7 @@ import {
 import InfoBox from "./InfoBox";
 import Map from "./Map";
 import Table from "./Table";
+import LineGraph from "./LineGraph";
 import { sortData } from "./util";
 import "./App.css";
 
@@ -68,37 +69,37 @@ function App() {
   console.log("====================================");
 
   return (
-    <div className="app">
-      <div className="app__left">
-        <div className="app__header">
+    <div className='app'>
+      <div className='app__left'>
+        <div className='app__header'>
           <h1>Track the COVID 19</h1>
-          <FormControl className="app_dropdown">
+          <FormControl className='app_dropdown'>
             <Select
-              variant="outlined"
+              variant='outlined'
               onChange={onCountryChange}
               value={country}
             >
-              <MenuItem value="worldwide">World Wide</MenuItem>
+              <MenuItem value='worldwide'>World Wide</MenuItem>
               {countries.map((country) => (
                 <MenuItem value={country.value}>{country.name}</MenuItem>
               ))}
             </Select>
           </FormControl>
         </div>
-        <div className="app__stats">
+        <div className='app__stats'>
           <InfoBox
-            title="Coronavirus Cases Today"
+            title='Coronavirus Cases Today'
             cases={countryInfo.todayCases}
             total={countryInfo.cases}
           />
           <InfoBox
-            className="app__stats-recovered"
-            title="Recovered Today"
+            className='app__stats-recovered'
+            title='Recovered Today'
             cases={countryInfo.todayRecovered}
             total={countryInfo.recovered}
           />
           <InfoBox
-            title="Deaths Today"
+            title='Deaths Today'
             cases={countryInfo.todayDeaths}
             total={countryInfo.deaths}
           />
@@ -106,11 +107,12 @@ function App() {
         <Map />
       </div>
 
-      <Card className="app__right">
+      <Card className='app__right'>
         <CardContent>
           <h3>Live Cases by Country</h3>
           <Table countries={tableData} />
           <h3>Worldwide new cases</h3>
+          <LineGraph />
         </CardContent>
       </Card>
     </div>
